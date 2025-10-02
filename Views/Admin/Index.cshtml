@@ -1,0 +1,101 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@inject Project.Data.CandidateContext _context
+
+<section id="dashboard" class="dashboard section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h2>Dashboard</h2>
+        <p>Overview of InnovaMedix Pharmora</p>
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Total Products</h4>
+                    <p class="metric">@_context.Products.Count()</p>
+                    <a asp-controller="Admin" asp-action="products" class="btn btn-outline-primary">View Products</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card" data-aos="fade-up" data-aos-delay="250">
+                    <h4>Total Quotes</h4>
+                    <p class="metric">@_context.Quotes.Count()</p>
+                    <a asp-controller="Admin" asp-action="quotes" class="btn btn-outline-primary">View Quotes</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Total Messages</h4>
+                    <p class="metric">@_context.Contacts.Count()</p>
+                    <a asp-controller="Admin" asp-action="ContactUs" class="btn btn-outline-primary">View Messages</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card" data-aos="fade-up" data-aos-delay="350">
+                    <h4>Total Candidates</h4>
+                    <p class="metric">@_context.Candidates.Count()</p>
+                    <a asp-controller="Admin" asp-action="CandidateView" class="btn btn-outline-primary">View Candidates</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card" data-aos="fade-up" data-aos-delay="400">
+                    <h4>Total Careers</h4>
+                    <p class="metric">@_context.Careers.Count()</p>
+                    <a asp-controller="Admin" asp-action="careers" class="btn btn-outline-primary">View Careers</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card" data-aos="fade-up" data-aos-delay="450">
+                    <h4>Total Admins</h4>
+                    <p class="metric">@_context.AdminLogins.Where(a => a.Role == "subadmin").Count()</p>
+                    <a asp-controller="Admin" asp-action="ManageAdmins" class="btn btn-outline-primary">View Admins</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+@* Career  *@
+<section id="dashboard" class="dashboard section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h2>Careers</h2>
+        <p>Overview of Careers</p>
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Total Pending</h4>
+                    <p class="metric">
+                        @_context.Careers.Where(c => c.Status == "Pending").Count()
+                    </p>
+                    <a asp-controller="Admin" asp-action="careers" class="btn btn-outline-primary">View Products</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card" data-aos="fade-up" data-aos-delay="250">
+                    <h4>Total Approved</h4>
+                    <p class="metric">@_context.Careers.Where(c => c.Status == "Approved").Count()</p>
+                    <a asp-controller="Admin" asp-action="careers" class="btn btn-outline-primary">View Quotes</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card" data-aos="fade-up" data-aos-delay="450">
+                    <h4>Total Reject</h4>
+                    <p class="metric">@_context.Careers.Where(c => c.Status == "Reject").Count()</p>
+                    <a asp-controller="Admin" asp-action="careers" class="btn btn-outline-primary">View Admins</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

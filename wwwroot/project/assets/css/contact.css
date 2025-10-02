@@ -1,0 +1,76 @@
+.contact-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  }
+  
+  .contact-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .contact-card form {
+    margin-top: 20px;
+  }
+  
+  .contact-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .contact-card p {
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .contact-info p {
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .info-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-right: 15px;
+  }
+  
+  .info-item div h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .info-item div p {
+    margin: 0;
+  }
+  
+  .social-links a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #007bff;
+  }

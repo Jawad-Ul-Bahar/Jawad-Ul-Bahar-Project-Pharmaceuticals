@@ -1,0 +1,211 @@
+﻿@model List<Project.Models.CareerRequest>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="careers" class="careers section mt-4">
+    <div class="container">
+        <h2>Manage Career Requests</h2>
+        <p>View, approve, email, or delete candidate applications</p>
+
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Applicant</th>
+                        <th>Email</th>
+                        <th>Job Position</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var c in Model)
+                    {
+                        <tr>
+                            <td>@c.Id</td>
+                            <td>@c.Name</td>
+                            <td>@c.Email</td>
+                            <td>@c.JobPosition</td>
+                            <td>@c.SubmittedAt.ToString("yyyy-MM-dd")</td>
+                            <td>@c.Status</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#careerModal_@c.Id">
+                                    <i class="bi bi-eye"></i> View
+                                </button>
+
+                                <form method="post" asp-controller="Admin" asp-action="ApproveCareer" asp-route-id="@c.Id" style="display:inline;">
+                                    <button type="submit" class="btn btn-sm btn-success"><i class="bi bi-check"></i> Approve</button>
+                                </form>
+
+                                <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#emailModal_@c.Id">
+                                    <i class="bi bi-envelope"></i> Email
+                                </button>
+
+                                <form method="post" asp-controller="Admin" asp-action="RejectCareer" asp-route-id="@c.Id" style="display:inline;">
+                                    <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Reject</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Create Career Request Modal -->
+<div class="modal fade" id="createCareerModal" tabindex="-1" aria-labelledby="createCareerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content quote-modal">
+            <div class="modal-header">
+                <h5 class="modal-title">New Career Request</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Admin" asp-action="CreateCareerRequest" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <div class="row gy-3">
+                        <div class="col-md-6">
+                            <label>Name</label>
+                            <input asp-for="First().Name" class="form-control" />
+                            <span asp-validation-for="First().Name" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Email</label>
+                            <input asp-for="First().Email" class="form-control" />
+                            <span asp-validation-for="First().Email" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Phone</label>
+                            <input asp-for="First().Phone" class="form-control" />
+                            <span asp-validation-for="First().Phone" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Address</label>
+                            <input asp-for="First().Address" class="form-control" />
+                            <span asp-validation-for="First().Address" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Degree</label>
+                            <input asp-for="First().Degree" class="form-control" />
+                            <span asp-validation-for="First().Degree" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Institution</label>
+                            <input asp-for="First().Institution" class="form-control" />
+                            <span asp-validation-for="First().Institution" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Graduation Year</label>
+                            <input asp-for="First().GraduationYear" class="form-control" type="number" />
+                            <span asp-validation-for="First().GraduationYear" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Resume (URL or File Path)</label>
+                            <input asp-for="First().Resume" class="form-control" />
+                            <span asp-validation-for="First().Resume" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label>Cover Letter</label>
+                            <textarea asp-for="First().CoverLetter" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="First().CoverLetter" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label>Job Position</label>
+                            <input asp-for="First().JobPosition" class="form-control" />
+                            <span asp-validation-for="First().JobPosition" class="text-danger"></span>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-success mt-3">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<!-- Existing Modals (View and Email) -->
+@foreach (var c in Model)
+{
+    <!-- View Modal -->
+    <div class="modal fade" id="careerModal_@c.Id" tabindex="-1" aria-labelledby="careerModalLabel_@c.Id" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content quote-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Career Request Details - ID @c.Id</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row gy-2">
+                        <div class="col-md-6"><label>Name</label><p>@c.Name</p></div>
+                        <div class="col-md-6"><label>Email</label><p>@c.Email</p></div>
+                        <div class="col-md-6"><label>Phone</label><p>@c.Phone</p></div>
+                        <div class="col-md-6"><label>Job Position</label><p>@c.JobPosition</p></div>
+                        <div class="col-md-6"><label>Degree</label><p>@c.Degree</p></div>
+                        <div class="col-md-6"><label>Institution</label><p>@c.Institution</p></div>
+                        <div class="col-md-6"><label>Graduation Year</label><p>@c.GraduationYear</p></div>
+                        <div class="col-md-6"><label>Submitted</label><p>@c.SubmittedAt.ToString("yyyy-MM-dd")</p></div>
+                        <div class="col-md-6"><label>Status</label><p>@c.Status</p></div>
+                        <div class="col-md-6">
+                            <label>Resume</label>
+                            @if (!string.IsNullOrEmpty(c.Resume))
+                            {
+                                <p><a href="@c.Resume" target="_blank">View Resume</a></p>
+                            }
+                            else
+                            {
+                                <p>No Resume Uploaded</p>
+                            }
+                        </div>
+                        <div class="col-12"><label>Cover Letter</label><p>@c.CoverLetter</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Modal -->
+    <div class="modal fade" id="emailModal_@c.Id" tabindex="-1" aria-labelledby="emailModalLabel_@c.Id" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content quote-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Send Email - @c.Name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form asp-controller="Admin" asp-action="SendCareerEmail" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="CareerId" value="@c.Id" />
+                        <div class="mb-3">
+                            <label>To</label>
+                            <input type="email" name="EmailTo" class="form-control" value="@c.Email" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label>Subject</label>
+                            <input type="text" name="EmailSubject" class="form-control" value="Interview Invitation - @c.JobPosition" required />
+                        </div>
+                        <div class="mb-3">
+                            <label>Message</label>
+                            <textarea name="EmailText" class="form-control" rows="5">@($"Dear {c.Name},\n\nWe are pleased to invite you for an interview for the {c.JobPosition} position.\n\nPlease confirm your availability.\n\nRegards,\nXYZ Pharmaceuticals")</textarea>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">Send</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

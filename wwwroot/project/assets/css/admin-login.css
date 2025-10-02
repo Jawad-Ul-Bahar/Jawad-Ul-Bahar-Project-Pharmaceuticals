@@ -1,0 +1,38 @@
+.login-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  }
+  
+  .login-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .login-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .login-card p {
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .login-card form {
+    margin-top: 20px;
+  }
+  
+  .login-card .form-control {
+    border-radius: 5px;
+  }
+  
+  .login-card .btn-primary {
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: 500;
+  }

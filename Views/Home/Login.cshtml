@@ -1,0 +1,105 @@
+﻿<main class="main">
+    <section id="careers" class="careers section mt-5">
+        <div class="container">
+            <h2>Careers at XYZ Pharmaceuticals</h2>
+            <p>Join our team and contribute to innovative healthcare solutions.</p>
+
+            <ul class="nav nav-tabs mb-4" id="careersTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">
+                        Candidate Login
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false">
+                        Create Account
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="careersTabContent">
+                <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                    <div class="container py-4">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8 col-lg-6">
+                                <div class="card shadow-lg rounded-4">
+                                    <div class="card-body p-4">
+                                        <h4 class="card-title text-center mb-4">Candidate Login</h4>
+                                        <form asp-controller="Home" asp-action="Profile" method="post">
+                                            <div class="mb-3">
+                                                <label for="loginEmail" class="form-label">Email address</label>
+                                                <input type="email" class="form-control" id="loginEmail" name="email" placeholder="Enter your email" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="loginPassword" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Enter your password" required>
+                                            </div>
+                                            <div class="d-grid mt-4">
+                                                <button type="submit" class="btn btn-primary">Login</button>
+                                            </div>
+
+                                            @if (ViewBag.Message != null)
+                                            {
+                                                <div class="alert alert-danger mt-3 text-center" role="alert">
+                                                    @ViewBag.Message
+                                                </div>
+                                            }
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                    <form asp-controller="Home" asp-action="Create" method="post">
+                        @model Project.Models.CandidateRegistration
+
+                        @Html.AntiForgeryToken()
+
+                        <h4 class="mb-3">Personal Details</h4>
+                        <div class="row gy-4">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Name, new { @class = "form-label" })
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Phone, new { @class = "form-label" })
+                                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-label" })
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-12">
+                                @Html.LabelFor(m => m.Address, new { @class = "form-label" })
+                                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", rows = "3" })
+                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center mt-4">
+                                <button type="submit" class="btn btn-primary">Create Account</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

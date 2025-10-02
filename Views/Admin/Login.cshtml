@@ -1,0 +1,159 @@
+﻿@model Project.Models.AdminLogin
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="XYZ Pharmaceuticals - Leading provider of pharmaceutical products and equipment">
+    <meta name="keywords" content="pharmaceuticals, capsules, tablets, liquid filling, medical equipment">
+
+    <!-- Favicons -->
+    <link href="~/project/assets/img/favicon.png" rel="icon">
+    <link href="~/project/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/project/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/project/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/project/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/project/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="~/project/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="~/project/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="~/project/assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <main class="main">
+        <section id="careers" class="careers section mt-5">
+            <div class="container">
+                <h2>Admin Login</h2>
+                <p>Join our team and contribute to innovative healthcare solutions.</p>
+
+                <ul class="nav nav-tabs mb-4" id="careersTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">
+                            Admin Login
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false">
+                            Create Account
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="careersTabContent">
+                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                        <div class="container py-4">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8 col-lg-6">
+                                    <div class="card shadow-lg rounded-4">
+                                        <div class="card-body p-4">
+                                            <h4 class="card-title text-center mb-4">Admin Login</h4>
+                                            <form asp-controller="Admin" asp-action="login" method="post">
+                                                <div class="mb-3">
+                                                    <label for="loginEmail" class="form-label">Email address</label>
+                                                    <input type="email" class="form-control" id="loginEmail" name="email" placeholder="Enter your email" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="loginPassword" class="form-label">Password</label>
+                                                    <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Enter your password" required>
+                                                </div>
+                                                <div class="d-grid mt-4">
+                                                    <button type="submit" class="btn btn-primary">Login</button>
+                                                </div>
+
+                                                @if (ViewBag.Message != null)
+                                                {
+                                                    <div class="alert alert-danger mt-3 text-center" role="alert">
+                                                        @ViewBag.Message
+                                                    </div>
+                                                }
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                        <form asp-controller="Admin" asp-action="AdminRegister" method="post" enctype="multipart/form-data">
+                            <h4 class="mb-3">Personal Details</h4>
+                            <div class="row gy-4">
+                                <div class="col-md-6">
+                                    <label asp-for="Name" class="form-label"></label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Email" class="form-label"></label>
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Phone" class="form-label"></label>
+                                    <input asp-for="Phone" class="form-control" />
+                                    <span asp-validation-for="Phone" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Password" class="form-label"></label>
+                                    <input asp-for="Password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-12">
+                                    <label asp-for="Address" class="form-label"></label>
+                                    <textarea asp-for="Address" class="form-control" rows="3"></textarea>
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-primary">Create Account</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Vendor JS Files -->
+    <script src="~/project/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/project/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/project/assets/vendor/aos/aos.js"></script>
+    <script src="~/project/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/project/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/project/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/project/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/project/assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="~/project/assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+﻿@using Microsoft.AspNetCore.Http
+
+
+@if (Context.Session.GetInt32("AdminId") == null)
+{
+    <script>
+        window.location.href = '@Url.Action("Login", "Admin")';
+    </script>
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Candidate Management - XYZ Pharmaceuticals</title>
+    <meta name="description" content="Admin panel to manage candidate profiles at XYZ Pharmaceuticals">
+    <meta name="keywords" content="pharmaceuticals, admin, candidate management">
+
+    <!-- Favicons -->
+    <link href="~/adminpanel/assets/img/favicon.png" rel="icon">
+    <link href="~/adminpanel/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Lato&family=Raleway&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/adminpanel/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/adminpanel/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/adminpanel/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/adminpanel/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="~/adminpanel/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="~/adminpanel/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS Files -->
+    <link href="~/adminpanel/assets/css/main.css" rel="stylesheet">
+    <link href="~/adminpanel/assets/css/admin-panel.css" rel="stylesheet">
+</head>
+
+<body class="admin-panel-page">
+   
+ <!-- Header -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a asp-controller="Admin" asp-action="Index" class="logo d-flex align-items-center me-auto" data-aos="fade-right" data-aos-delay="100">
+                <!-- SVG Logo -->
+                <svg class="my-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> ... </svg>
+                <h1 class="sitename">InnovaMedix Pharmora </h1>
+            </a>
+            <div class="admin-nav d-flex align-items-center" data-aos="fade-left" data-aos-delay="150">
+                <a asp-controller="Admin" asp-action="ProfileView" class="admin-nav-link me-3"><i class="bi bi-person-circle"></i> Admin Profile</a>
+                <a asp-controller="Admin" asp-action="Logout" class="admin-nav-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    @* <div class="admin-panel-container d-flex"> *@
+        <!-- Sidebar -->
+        <aside class="sidebar" data-aos="fade-right" data-aos-delay="100">
+            <div class="sidebar-header">
+                <h3>Admin Panel</h3>
+                <p>Welcome, Admin</p>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Admin" asp-action="Index"><i class="bi bi-house-door"></i> Dashboard</a>
+                </li>
+           
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Admin" asp-action="ManageAdmins"><i class="bi bi-person-fill"></i> ManageAdmins</a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Admin" asp-action="CandidateView"><i class="bi bi-person-fill"></i> CandidateView</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Admin" asp-action="products"><i class="bi bi-box-seam"></i> Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Admin" asp-action="quotes"><i class="bi bi-file-earmark-text"></i> Quotes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Admin" asp-action="ContactUs"><i class="bi bi-envelope"></i> Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Admin" asp-action="careers"><i class="bi bi-briefcase"></i> Careers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Admin" asp-action="Logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                </li>
+            </ul>
+        </aside>
+    @* </div> *@
+    <main class="main-content flex-grow-1">
+        <br/>
+        <br/>
+
+        @RenderBody()
+    </main>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+    <!-- JS Files -->
+    <script src="~/adminpanel/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/adminpanel/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/adminpanel/assets/vendor/aos/aos.js"></script>
+    <script src="~/adminpanel/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/adminpanel/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/adminpanel/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/adminpanel/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/adminpanel/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/adminpanel/assets/js/main.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

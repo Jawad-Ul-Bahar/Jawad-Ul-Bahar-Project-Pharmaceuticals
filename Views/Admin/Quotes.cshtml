@@ -1,0 +1,49 @@
+﻿@model List<Project.Models.Quote>
+
+@{
+    ViewData["Title"] = "ContactUs";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="inquiries" class="inquiries section mt-4">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h2>Feedback Inquiries</h2>
+        <p>Review detailed contact form submissions</p>
+
+        <div class="table-responsive" data-aos="fade-up" data-aos-delay="200">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Company Name</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Postal Code</th>
+                        <th>Country</th>
+                        <th>Email Address</th>
+                        <th>Phone</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var i in Model)
+                    {
+                        <tr>
+                            <td>@i.Full_Name</td>
+                            <td>@i.Company_Name</td>
+                            <td>@i.Address</td>
+                            <td>@i.City</td>
+                            <td>@i.State</td>
+                            <td>@i.Postal_Code</td>
+                            <td>@i.Country</td>
+                            <td>@i.Email</td>
+                            <td>@i.Phone</td>
+                            <td>@i.Comments</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

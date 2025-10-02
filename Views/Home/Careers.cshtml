@@ -1,0 +1,139 @@
+﻿@model Project.Models.CareerRequest
+
+@{
+    var latest = ViewBag.LatestCareer as Project.Models.CareerRequest;
+}
+
+@if (latest != null)
+{
+    // Status message
+    if (latest.Status == "Pending")
+    {
+        <div class="alert mt-4 alert-warning">
+            <h5>Status: Pending</h5>
+            <p>Your request is under review. Please wait for approval.</p>
+        </div>
+    }
+    else if (latest.Status == "Approved")
+    {
+        <div class="alert mt-4 alert-success">
+            <h5>Status: Approved</h5>
+            <p>Your request has been approved. You will be contacted soon.</p>
+        </div>
+    }
+    else if (latest.Status == "Rejected")
+    {
+        <div class="alert mt-4 alert-danger">
+            <h5>Status: Rejected</h5>
+            <p>Your request has been rejected. You may submit a new request.</p>
+        </div>
+    }
+    else
+    {
+        <div class="alert mt-4 alert-secondary">
+            <h5>Status: @latest.Status</h5>
+            <p>Status information is unavailable.</p>
+        </div>
+    }
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="card-header  text-white" style="background-color: #17a2b8; ">
+                        <h5 class="card-title mb-0">Career Request - ID @latest.Id</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row gy-2">
+                            <div class="col-md-6"><strong>Name:</strong><p class="mb-0">@latest.Name</p></div>
+                            <div class="col-md-6"><strong>Email:</strong><p class="mb-0">@latest.Email</p></div>
+                            <div class="col-md-6"><strong>Phone:</strong><p class="mb-0">@latest.Phone</p></div>
+                            <div class="col-md-6"><strong>Job Position:</strong><p class="mb-0">@latest.JobPosition</p></div>
+                            <div class="col-md-6"><strong>Degree:</strong><p class="mb-0">@latest.Degree</p></div>
+                            <div class="col-md-6"><strong>Institution:</strong><p class="mb-0">@latest.Institution</p></div>
+                            <div class="col-md-6"><strong>Graduation Year:</strong><p class="mb-0">@latest.GraduationYear</p></div>
+                            <div class="col-md-6"><strong>Submitted:</strong><p class="mb-0">@latest.SubmittedAt.ToString("yyyy-MM-dd")</p></div>
+                            <div class="col-md-6"><strong>Status:</strong><p class="mb-0">@latest.Status</p></div>
+                            <div class="col-md-6">
+                                <strong>Resume:</strong>
+                                <p class="mb-0"><a href="@latest.Resume" target="_blank">View Resume</a></p>
+                            </div>
+                            <div class="col-12">
+                                <strong>Cover Letter:</strong>
+                                <p class="mb-0">@latest.CoverLetter</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    // Show form if no previous request
+    <main class="main">
+        <section class="careers section mt-5">
+            <div class="container">
+                <h2>Apply for a Career</h2>
+                <form asp-action="Careers" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Name</label>
+                            <input name="Name" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Email</label>
+                            <input name="Email" type="email" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Phone</label>
+                            <input name="Phone" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Address</label>
+                            <input name="Address" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Degree</label>
+                            <input name="Degree" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Institution</label>
+                            <input name="Institution" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Graduation Year</label>
+                            <input name="GraduationYear" type="date" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Resume (PDF)</label>
+                            <input name="file" type="file" accept=".pdf" class="form-control" required />
+                        </div>
+                        <div class="col-md-12">
+                            <label>Cover Letter</label>
+                            <textarea name="CoverLetter" class="form-control"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Job Position</label>
+                            <select name="JobPosition" class="form-control" required>
+                                <option value="">Select</option>
+                                <option>Research Scientist</option>
+                                <option>Quality Control Analyst</option>
+                                <option>Marketing Manager</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 mt-3 text-center">
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+}
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
+}

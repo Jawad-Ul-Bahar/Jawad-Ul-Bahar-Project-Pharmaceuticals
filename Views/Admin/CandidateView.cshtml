@@ -1,0 +1,48 @@
+﻿@model List<Project.Models.CandidateRegistration>
+ @{ 
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; 
+ } 
+   
+<main class="main">
+    <section id="candidate-view" class="candidate-view section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <h2>Candidate Management</h2>
+            <p>View and manage candidate profiles below.</p>
+
+            <div class="table-responsive" data-aos="fade-up" data-aos-delay="200">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var i in Model)
+                        {
+                            <tr>
+                                <td>@i.Name</td>
+                                <td>@i.Email</td>
+                                <td>@i.Phone</td>
+                                <td>@i.Address</td>
+                                <td>
+                                    <form asp-action="DeleteCandidate" asp-controller="Admin" method="post" onsubmit="return confirm('Are you sure you want to remove this candidate?');">
+                                        <input type="hidden" name="id" value="@i.Id" />
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="bi bi-trash"></i> Remove
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</main>
+
+

@@ -1,0 +1,141 @@
+.admin-panel-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.header {
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-nav {
+  display: flex;
+  align-items: center;
+}
+
+.admin-nav-link {
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.admin-nav-link i {
+  margin-right: 8px;
+}
+
+.admin-nav-link:hover,
+.admin-nav-link.active {
+  background: #007bff;
+  color: #fff;
+}
+
+.sidebar {
+  width: 250px;
+  background: #f8f9fa;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar-header h3 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.sidebar-header p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: #333;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-link i {
+  margin-right: 10px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: #007bff;
+  color: #fff;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  background: #fff;
+}
+
+.profile-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+}
+
+.profile-card:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.profile-card form {
+  margin-top: 20px;
+}
+
+.profile-card .form-control {
+  border-radius: 5px;
+}
+
+.profile-card .btn-primary {
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.section {
+  padding: 40px 0;
+}
+
+.section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.section p {
+  color: #666;
+  margin-bottom: 20px;
+}

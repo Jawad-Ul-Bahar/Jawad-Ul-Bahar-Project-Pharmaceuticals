@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var pending = ViewBag.Pending as List<Project.Models.AdminLogin>;
+    var approved = ViewBag.Approved as List<Project.Models.AdminLogin>;
+}
+@if (Context.Session.GetString("AdminRole") != "admin")
+{
+    <div class="alert alert-danger mt-4">
+        This page is only for main admin.
+    </div>
+    return;
+}
+
+<section class="section mt-5">
+    <div class="container">
+        <h2 class="mb-4">Admin Role Requests</h2>
+
+        <!-- Pending Admins -->
+        <h4>Pending Requests</h4>
+        @if (pending != null && pending.Any())
+        {
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var admin in pending)
+                    {
+                        <tr>
+                            <td>@admin.Id</td>
+                            <td>@admin.Name</td>
+                            <td>@admin.Email</td>
+                            <td>@admin.Phone</td>
+                            <td>@admin.Address</td>
+                            <td>
+                                <form asp-action="Approve" method="post" style="display:inline">
+                                    <input type="hidden" name="id" value="@admin.Id" />
+                                    <button class="btn btn-success btn-sm">Approve</button>
+                                </form>
+                                <form asp-action="Reject" method="post" style="display:inline">
+                                    <input type="hidden" name="id" value="@admin.Id" />
+                                    <button class="btn btn-danger btn-sm">Reject</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No pending admin requests.</p>
+        }
+
+        <!-- Approved Admins -->
+        <h4 class="mt-5">Approved Admins</h4>
+        @if (approved != null && approved.Any())
+        {
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var admin in approved)
+                    {
+                        <tr>
+                            <td>@admin.Id</td>
+                            <td>@admin.Name</td>
+                            <td>@admin.Email</td>
+                            <td>@admin.Phone</td>
+                            <td>@admin.Address</td>
+                            <td>
+                                <form asp-action="DeleteApproved" method="post" style="display:inline">
+                                    <input type="hidden" name="id" value="@admin.Id" />
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No approved admins.</p>
+        }
+    </div>
+</section>

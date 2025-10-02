@@ -1,0 +1,130 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|c:\\users\\hp\\source\\repos\\project-pharmaceuticals\\migrations\\20250728072007_changesinmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|solutionrelative:migrations\\20250728072007_changesinmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|c:\\users\\hp\\source\\repos\\project-pharmaceuticals\\models\\careerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|solutionrelative:models\\careerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|c:\\users\\hp\\source\\repos\\project-pharmaceuticals\\views\\home\\careers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|solutionrelative:views\\home\\careers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|c:\\users\\hp\\source\\repos\\project-pharmaceuticals\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|c:\\users\\hp\\source\\repos\\project-pharmaceuticals\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|c:\\users\\hp\\source\\repos\\project-pharmaceuticals\\models\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C3355B2-287E-4756-86F1-466E07C740D0}|Project.csproj|solutionrelative:models\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250728072007_changesinmodels.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Migrations\\20250728072007_changesinmodels.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250728072007_changesinmodels.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Migrations\\20250728072007_changesinmodels.cs",
+              "RelativeToolTip": "Migrations\\20250728072007_changesinmodels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T07:20:09.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Careers.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Views\\Home\\Careers.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Careers.cshtml",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Views\\Home\\Careers.cshtml",
+              "RelativeToolTip": "Views\\Home\\Careers.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAGQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-28T07:09:48.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-28T06:54:59.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Contact.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Models\\Contact.cs",
+              "RelativeDocumentMoniker": "Models\\Contact.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Models\\Contact.cs",
+              "RelativeToolTip": "Models\\Contact.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T06:54:34.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAnwKcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-27T19:48:06.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CareerRequest.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Models\\CareerRequest.cs",
+              "RelativeDocumentMoniker": "Models\\CareerRequest.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Project-Pharmaceuticals\\Models\\CareerRequest.cs",
+              "RelativeToolTip": "Models\\CareerRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-27T19:46:39.034Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

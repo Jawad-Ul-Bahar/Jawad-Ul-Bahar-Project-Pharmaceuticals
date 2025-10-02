@@ -1,0 +1,80 @@
+﻿@model Project.Models.Quote
+
+<section id="quote" class="contact section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+            <div class="col-lg-8 mx-auto">
+                <div class="contact-form">
+                    <h3 class="text-center" data-aos="fade-up" data-aos-delay="200">Get a Quote</h3>
+                    <p class="text-center" data-aos="fade-up" data-aos-delay="250">Fill out the form below to request a quote or provide feedback. Our team will get back to you promptly.</p>
+
+                    <form asp-controller="Home" asp-action="Quoteus" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div class="row gy-4">
+                            <div class="col-md-6">
+                                <input asp-for="Full_Name" class="form-control" placeholder="Full Name" />
+                                <span asp-validation-for="Full_Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input asp-for="Company_Name" class="form-control" placeholder="Company Name" />
+                                <span asp-validation-for="Company_Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-12">
+                                <input asp-for="Address" class="form-control" placeholder="Address" />
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input asp-for="City" class="form-control" placeholder="City" />
+                                <span asp-validation-for="City" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input asp-for="State" class="form-control" placeholder="State" />
+                                <span asp-validation-for="State" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input asp-for="Postal_Code" class="form-control" placeholder="Postal Code" />
+                                <span asp-validation-for="Postal_Code" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input asp-for="Country" class="form-control" placeholder="Country" />
+                                <span asp-validation-for="Country" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input asp-for="Email" class="form-control" placeholder="Email Address" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input asp-for="Phone" class="form-control" placeholder="Phone Number" />
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-12">
+                                <textarea asp-for="Comments" class="form-control" rows="6" placeholder="Comments or Requirements"></textarea>
+                                <span asp-validation-for="Comments" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary">Submit Request</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
+}

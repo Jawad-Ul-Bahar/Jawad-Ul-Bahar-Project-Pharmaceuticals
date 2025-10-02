@@ -1,0 +1,37 @@
+﻿@model List<Project.Models.Contact>
+
+@{
+    ViewData["Title"] = "ContactUs";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="inquiries" class="inquiries section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h2>Messages</h2>
+        <p>Review messages</p>
+        <div class="table-responsive" data-aos="fade-up" data-aos-delay="200">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var i in Model)
+                    {
+                        <tr>
+                            <td>@i.Id</td>
+                            <td>@i.Name</td>
+                            <td>@i.Email</td>
+                            <td>@i.Subject</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
